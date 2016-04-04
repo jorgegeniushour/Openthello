@@ -14,6 +14,10 @@ function Game:new(app)
 	local black = User:headers(app.req.headers)
 	local white = app.req.params_post.white
 
+        if black == "fail" then
+                return {json = "fail"}
+        end
+
 	local game = Models.game:create({
 		board = Board.default,
 		turn  = 0,
