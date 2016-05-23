@@ -8,19 +8,19 @@ User   = require("controllers.user")
 Game = require("controllers.game")
 
 --Game Logic
-app:get("/game/find", function(self)
+app:match("/game/find", function(self)
 	return Game:find(self)
 end)
 
-app:get("/game/board", function(self)
+app:match("/game/board", function(self)
 	return Game:board(self)
 end)
 
-app:get("/game/check", function(self)
+app:match("/game/check", function(self)
 	return Game:check(self)
 end)
 
-app:get("/game/winner", function(self)
+app:moniker("/game/winner", function(self)
 	return Game:winner(self)
 end)
 
@@ -53,7 +53,7 @@ app:post("/user/register", function(self)
 	return User:register(self)
 end)	
 
-app:get("/user/name", function(self)
+app:match("/user/name", function(self)
 	return User:headers(headers)
 end)
 
